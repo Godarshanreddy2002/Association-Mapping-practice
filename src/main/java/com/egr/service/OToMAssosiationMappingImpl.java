@@ -1,6 +1,7 @@
 package com.egr.service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,6 @@ public class OToMAssosiationMappingImpl implements IOToMAssosiationMapping
 		
 		ph1.setProvider("Jio");
 		ph1.setPersonInfo(per);
-		
 		
 		PhoneNumbers ph2=new PhoneNumbers();
 		
@@ -91,6 +91,7 @@ public class OToMAssosiationMappingImpl implements IOToMAssosiationMapping
 	public void loadDataUsingParent() 
 	{
 		Iterable<Person> it=person.findAll();
+		
 		it.forEach(per->{System.out.println("Parent"+per.toString());
 		
 		Set<PhoneNumbers> childs=per.getContacts();
@@ -101,8 +102,21 @@ public class OToMAssosiationMappingImpl implements IOToMAssosiationMapping
 			System.out.println("Child phone number"+child.getPhnoNumber());
 		});
 		
-		});
+	});
 		
+	}
+
+	@Override
+	public void loadDataUsingChild() {
+		
+		List<PhoneNumbers> childs=contact.findAll();
+		
+		childs.forEach(ph->{
+			System.out.println("child ------- "+ph);
+			Person per=ph.getPersonInfo();
+			System.out.println("Parent ------- "+per);
+		});
+				
 	}
 	
 	

@@ -11,6 +11,8 @@ public interface IOToMAssosiationMapping
 	
 	public void loadDataUsingParent();
 	
+	public void loadDataUsingChild();
+	
 	
 
 }

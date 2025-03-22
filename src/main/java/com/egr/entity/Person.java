@@ -46,8 +46,7 @@ public class Person
 
 	@Override
 	public String toString() {
-		return "Person [personId=" + personId + ", name=" + name + ", address=" + address + ", contacts=" + contacts
-				+ "]";
+		return "Person [personId=" + personId + ", name=" + name + ", address=" + address + "]";
 	}
 
 	public Long getPersonId() {

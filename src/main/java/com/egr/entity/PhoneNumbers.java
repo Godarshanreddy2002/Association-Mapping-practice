@@ -1,7 +1,5 @@
 package com.egr.entity;
 
-import java.io.Serializable;
-
 import org.springframework.lang.NonNull;
 
 import jakarta.persistence.CascadeType;
@@ -16,7 +14,6 @@ import jakarta.persistence.SequenceGenerator;
 
 
 @Entity
-
 public class PhoneNumbers 
 {
 	@Id
@@ -37,14 +34,14 @@ public class PhoneNumbers
 	private Person personInfo;
 
 	public PhoneNumbers() {
-		super();
+		
 		System.out.println("0- arg constuctor of Phone numbers");
 	}
 
 	@Override
 	public String toString() {
 		return "PhoneNumbers [regId=" + regId + ", phnoNumber=" + phnoNumber + ", provider=" + provider
-				+ ", personInfo=" + personInfo + "]";
+				+ "]";
 	}
 
 	public Long getRegId() {
