@@ -18,5 +18,8 @@ public interface IOToMAssosiationMapping
 	public String deleteALlPhoneNumbersOfAPeron(Long id);
 	
 	
+	
+	public void addNewChildToParentById(Long id);
+	
 
 }

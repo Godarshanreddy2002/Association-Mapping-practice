@@ -156,4 +156,29 @@ public class OToMAssosiationMappingImpl implements IOToMAssosiationMapping
 		return id+" Person not found";
 	}
 
+	@Override
+	public void addNewChildToParentById(Long id) 
+	{
+		Optional<Person> opt=person.findById(id);
+		
+		if(opt.isPresent())
+		{
+			
+			Person per=opt.get();			
+			PhoneNumbers phn=new PhoneNumbers();
+			
+			phn.setProvider("jio");
+			phn.setPhnoNumber(6305917434L);
+			phn.setPersonInfo(per);			
+			Set<PhoneNumbers> ph=per.getContacts();
+			ph.add(phn);
+			per.setContacts(ph);			
+			person.save(per);			
+			System.out.println("New child Object is added to the existing parent");
+		}
+		else {
+			System.out.println(id+" not found");
+		}		
+	}
+
 }
