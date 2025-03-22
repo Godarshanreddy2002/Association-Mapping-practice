@@ -13,6 +13,8 @@ public interface IOToMAssosiationMapping
 	
 	public void loadDataUsingChild();
 	
+	public String deleteByPerson(Long id);
+	
 	
 
 }

@@ -2,6 +2,7 @@ package com.egr.service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,7 +119,20 @@ public class OToMAssosiationMappingImpl implements IOToMAssosiationMapping
 		});
 				
 	}
-	
+
+	@Override
+	public String deleteByPerson(Long id) 
+	{
+		Optional<Person> per=person.findById(id);
+		if(per.isPresent())
+		{
+			person.delete(per.get());
+		
+			return "Person deleted successfully";
+		}
+		
+		return "Person is not found to delete";
+	}
 	
 
 }

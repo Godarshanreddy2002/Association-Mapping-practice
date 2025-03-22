@@ -18,7 +18,9 @@ public class OToMAssosiationMappingRunner implements CommandLineRunner
 //		service.saveDataUsingParent();
 //		service.saveDataUsingChild();
 //		service.loadDataUsingParent();		
-		service.loadDataUsingChild();
+//		service.loadDataUsingChild();
+		
+		System.out.println(service.deleteByPerson(52L));
 		
 		
 	}
