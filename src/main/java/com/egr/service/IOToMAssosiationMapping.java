@@ -15,6 +15,8 @@ public interface IOToMAssosiationMapping
 	
 	public String deleteByPerson(Long id);
 	
+	public String deleteALlPhoneNumbersOfAPeron(Long id);
+	
 	
 
 }

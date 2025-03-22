@@ -65,12 +65,12 @@ public class OToMAssosiationMappingImpl implements IOToMAssosiationMapping
 		
 		PhoneNumbers ph1 = new PhoneNumbers();
 		
-		ph1.setPhnoNumber(9181492046L);
+		ph1.setPhnoNumber(9128455676L);
 		ph1.setProvider("idea");
 		
 				
 		PhoneNumbers ph2 = new PhoneNumbers();
-		ph2.setPhnoNumber(9101092089L);
+		ph2.setPhnoNumber(9520459600L);
 		ph2.setProvider("VI");
 		ph1.setPersonInfo(per);
 		ph2.setPersonInfo(per);
@@ -133,6 +133,27 @@ public class OToMAssosiationMappingImpl implements IOToMAssosiationMapping
 		
 		return "Person is not found to delete";
 	}
-	
+
+	@Override
+	public String deleteALlPhoneNumbersOfAPeron(Long id) {
+		
+		
+		Optional<Person> opt=person.findById(id);
+		
+		if(opt.isPresent())
+		{
+			Set<PhoneNumbers> childs=opt.get().getContacts();
+			
+			childs.forEach(ph->{
+				ph.setPersonInfo(null);
+			});
+			
+			contact.deleteAll(childs);
+			
+			return childs.size()+" Phone number are deleted "+id+" Person are deleted";	
+			
+		}
+		return id+" Person not found";
+	}
 
 }

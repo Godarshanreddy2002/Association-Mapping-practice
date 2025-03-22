@@ -16,11 +16,12 @@ public class OToMAssosiationMappingRunner implements CommandLineRunner
 	public void run(String... args) throws Exception
 	{
 //		service.saveDataUsingParent();
-//		service.saveDataUsingChild();
+		service.saveDataUsingChild();
 //		service.loadDataUsingParent();		
 //		service.loadDataUsingChild();
 		
-		System.out.println(service.deleteByPerson(52L));
+//		System.out.println(service.deleteByPerson(52L));
+		System.out.println(service.deleteALlPhoneNumbersOfAPeron(152L));
 		
 		
 	}
